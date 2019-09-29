@@ -1,0 +1,23 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.logo > span {
+  color: black;
+  font-size: 30px;
+}
+
+.logo > img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.login-card {
+  color: black;
+  padding: 20px 30px;
+  border-radius: 8px;
+  background: white;
+}
