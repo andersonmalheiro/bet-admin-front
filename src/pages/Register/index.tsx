@@ -6,17 +6,33 @@ import Form from 'components/Form';
 import { InputAttribs } from 'components/Input';
 import Auth from 'api/Auth';
 import { errorHandler } from 'utils/error-handler';
-
+import { ToastContainer, toast } from 'react-toastify';
 interface Props {}
 
 const Register = () => {
 	const config: InputAttribs[] = [
 		{
+			id: 'first_name',
+			name: 'first_name',
+			type: 'text',
+			label: 'Nome',
+			placeholder: 'Seu nome...',
+			validators: {
+				required: true,
+				minLength: 3,
+				maxLength: 50
+			},
+			stylingConfigs: {
+				inputClass: 'form-control',
+				wrapperClass: 'form-group'
+			}
+		},
+		{
 			id: 'username',
 			name: 'username',
 			type: 'text',
 			label: 'Nome de usuário',
-			placeholder: 'Seu nome de usuário...',
+			placeholder: 'Seu nome de usuário na aplicação...',
 			validators: {
 				required: true,
 				minLength: 3,
@@ -44,8 +60,8 @@ const Register = () => {
 			}
 		},
 		{
-			id: 'senha',
-			name: 'senha',
+			id: 'password',
+			name: 'password',
 			type: 'password',
 			label: 'Senha',
 			placeholder: 'Digite sua senha...',
@@ -65,12 +81,7 @@ const Register = () => {
 		e.preventDefault();
 		Auth.register(data)
 			.then(res => {
-				const { data } = res;
-				console.log(data);
-				// if (data) {
-				// 	localStorage.setItem('access', data.access);
-				// 	localStorage.setItem('refresh', data.refresh);
-				// }
+				toast.success('Cadastrado com sucesso');
 			})
 			.catch(err => {
 				const { response } = err;
@@ -99,6 +110,7 @@ const Register = () => {
 					</div>
 				</div>
 			</div>
+			<ToastContainer />
 		</GradientContainer>
 	);
 };
