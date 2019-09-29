@@ -1,0 +1,35 @@
+.sidebar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90px;
+  margin: 5px;
+  padding: 10px;
+  color: gray;
+  cursor: pointer;
+}
+
+.sidebar-card:hover,
+.card-selected {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 3px 0.5rem #6b6b6b67;
+  & .card-icon {
+    color: rgba(121, 9, 9, 1);
+    transition: all 0.3s;
+  }
+  & .link-name {
+    color: #333;
+    transition: all 0.3s;
+  }
+  transition: all 0.3s;
+}
+
+.link-name {
+  font-size: 0.75em;
+}
+
+.card-icon {
+  font-size: 1.5em;
+  margin: 0.5rem 0;
+}
